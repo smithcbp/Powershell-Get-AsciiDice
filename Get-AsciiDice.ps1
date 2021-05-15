@@ -52,6 +52,7 @@ function Get-AsciiDice {
   }
 
  $NumberSet | foreach { if ($_ -gt '6'){Write-Error -Message "Only supports digits 1-6" -ErrorAction Stop} }
+ if ($($NumberSet.Count) -gt 10){Write-Error -Message "Only supports up to 10 die" -ErrorAction Stop}
 
   $d = [PSCustomObject]@{
       t1 = '   '
