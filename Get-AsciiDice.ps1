@@ -3,7 +3,8 @@
   Displays ASCII art dice
 .DESCRIPTION
   Easily create ascii are dice for your powershell games. You can roll them at random, or from a number set. You can change the colors too.
-.NOTES
+  Limited to numbers 1-6 and a total of 10 die.
+  .NOTES
   Author: Chris Smith (smithcbp on github)
 .PARAMETER Random
     Rolls the specified amount of dice at random and displays them in ascii art. 
