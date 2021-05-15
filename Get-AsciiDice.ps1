@@ -13,19 +13,18 @@
 .PARAMETER color
     Choose the color of your die. Default is white
 .EXAMPLE
-Get-AsciiDice -Numbers 123456 -color Gray
-
- ___    ___    ___    ___    ___    ___ 
-|   |  |  o|  |o  |  |o o|  |o o|  |o o|
-| o |  |   |  | o |  |   |  | o |  |o o|
-|   |  |o  |  |  o|  |o o|  |o o|  |o o|
- ---    ---    ---    ---    ---    ---
+Get-AsciiDice -Numbers 12345
+ _____    _____    _____    _____    _____ 
+|     |  |    o|  |o    |  |o   o|  |o   o|
+|  o  |  |     |  |  o  |  |     |  |  o  |
+|     |  |o    |  |    o|  |o   o|  |o   o|
+ -----    -----    -----    -----    ----- 
 Get-AsciiDice -Random 3
- ___    ___    ___ 
-|  o|  |o o|  |o o|
-|   |  | o |  |   |
-|o  |  |o o|  |o o|
- ---    ---    --- 
+ _____    _____    _____ 
+| o   |  |   o |  |o   o|
+|  o  |  |     |  |     |
+|   o |  | o   |  |o   o|
+ -----    -----    ----- 
 #>
 
 function Get-AsciiDice {
@@ -56,35 +55,35 @@ function Get-AsciiDice {
  if ($($NumberSet.Count) -gt 10){Write-Error -Message "Only supports up to 10 die" -ErrorAction Stop}
 
   $d = [PSCustomObject]@{
-      t1 = '   '
-      m1 = ' o '
-      b1 = '   '
-      t2 = '  o'
-      m2 = '   '
-      b2 = 'o  '
-      t3 = 'o  '
-      m3 = ' o '
-      b3 = '  o'
-      t4 = 'o o'
-      m4 = '   '
-      b4 = 'o o'
-      t5 = 'o o'
-      m5 = ' o '
-      b5 = 'o o'
-      t6 = 'o o'
-      m6 = 'o o'
-      b6 = 'o o'
+      t1 = '     '
+      m1 = '  o  '
+      b1 = '     '
+      t2 = '   o '
+      m2 = '     '
+      b2 = ' o   '
+      t3 = ' o   '
+      m3 = '  o  '
+      b3 = '   o '
+      t4 = 'o   o'
+      m4 = '     '
+      b4 = 'o   o'
+      t5 = 'o   o'
+      m5 = '  o  '
+      b5 = 'o   o'
+      t6 = 'o   o'
+      m6 = 'o   o'
+      b6 = 'o   o'
       }
   
 $DiePicture = foreach ($n in $Numberset){   
   $t = 't' + $n
   $m = 'm' + $n
   $b = 'b' + $n  
-  Write-Output " ___ "
+  Write-Output " _____ "
   Write-Output "|$($d.$t)|"
   Write-Output "|$($d.$m)|"
   Write-Output "|$($d.$b)|"
-  Write-Output " --- "
+  Write-Output " ----- "
   }
 
 Write-Host -ForegroundColor $DieColor ($DiePicture[0,5,10,15,20,25,30,35,40,45] -join '  ')
