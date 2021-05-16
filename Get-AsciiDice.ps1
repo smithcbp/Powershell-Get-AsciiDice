@@ -10,7 +10,7 @@
     Rolls the specified amount of dice at random and displays them in ascii art. 
 .PARAMETER Numbers
     Display the specified numbers, 1-6 in ascii art.
-.PARAMETER color
+.PARAMETER DieColor
     Choose the color of your die. Default is white
 .EXAMPLE
 Get-AsciiDice -Numbers 12345
