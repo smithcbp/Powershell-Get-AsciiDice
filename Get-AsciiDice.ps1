@@ -44,14 +44,14 @@ function Get-AsciiDice {
   )
 
   if ($random) {
-      $NumberSet = (1..$random | foreach {Get-Random -Minimum 1 -Maximum 7})
+      $NumberSet = (1..$random | ForEach-Object {Get-Random -Minimum 1 -Maximum 7})
       $NumberSet = ($NumberSet -join '').ToString().ToCharArray()
   }
   if ($Numbers) {
       $NumberSet = $Numbers.ToString().ToCharArray()
   }
 
- $NumberSet | foreach { if ($_ -gt '6'){Write-Error -Message "Only supports digits 1-6" -ErrorAction Stop} }
+ $NumberSet | ForEach-Object { if ($_ -gt '6'){Write-Error -Message "Only supports digits 1-6" -ErrorAction Stop} }
  if ($($NumberSet.Count) -gt 10){Write-Error -Message "Only supports up to 10 die" -ErrorAction Stop}
 
   $d = [PSCustomObject]@{
