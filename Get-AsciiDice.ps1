@@ -44,7 +44,7 @@ function Get-AsciiDice {
   )
 
   if ($random) {
-      $NumberSet = (1..$random | foreach {Get-Random -Maximum 6 -Minimum 1})
+      $NumberSet = (1..$random | foreach {Get-Random -Minimum 1 -Maximum 7})
       $NumberSet = ($NumberSet -join '').ToString().ToCharArray()
   }
   if ($Numbers) {
